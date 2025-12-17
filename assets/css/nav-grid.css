@@ -29,7 +29,7 @@
   padding: 2vh 0;
   text-align: center;
   font-size: 2vh;
-  color: gray;
+  color: var(--main-text-color);
 }
 
 

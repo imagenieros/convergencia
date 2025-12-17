@@ -89,7 +89,11 @@ class SwipeScroller {
     resetScroll() {
         this.position = 0;   
         this.setTransform(this.position);
-        window.scrollTo(0, 0); // navigator.userAgentData.mobile ? -100000
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        }); 
     }
 
     setTransform(position) {

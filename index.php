@@ -21,18 +21,42 @@
 
     html {
       overflow : hidden;
+      color: var(--main-text-color);
     }
 
     .hidden {
       display: none;
-      /* opacity: 0; */
     }
+
+    .centered-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      background: white;
+      z-index: 1000;
+    }
+
+    .centered-container .centered-content {
+      text-align: center;
+      font-size: 4rem;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }    
   </style>
 </head>
+
 <?php include("include/helpers.php"); ?>
 <?php include("include/nav.php"); ?>
 <?php include("include/details.php"); ?>
 <body>
+   <!-- Full Screen Start button -->
+  <div id="start-button" class="centered-container">
+    <div class="centered-content">Tap to start</div>
+  </div>
+
   <!-- CONTENIDOS -->
   <div class="global-container"><!-- add class 'show-detail' to show detail view -->
     <!-- TOP BAR -->
@@ -69,11 +93,20 @@
   <!-- DEBUG -->
   <!-- <div class="debug-info-container js-debug"></div> -->
 
+  <script>
+    document.querySelector('#start-button').addEventListener('click', (e) => {
+      document.querySelector('body').requestFullscreen();
+      e.currentTarget.remove();
+      // aca mostrar todo
+    }, {once : true})
+
+    window.scrollTo(0,0)
+  </script>
 </body>
+
 <!-- Componentes JS -->
 <script type="text/javascript" src="./assets/js/swipe-scroller.js"></script>
 <script type="text/javascript" src="./assets/js/main-nav.js"></script>
-
 
 <!-- Main App -->
 <script type="text/javascript" src="./assets/js/app.js"></script>

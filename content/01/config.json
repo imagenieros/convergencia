@@ -1,4 +1,4 @@
 {
 	"title" : "Calculadora",
-	"gpio_pin" : 1
+	"gpio_pin" : 13
 }

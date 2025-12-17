@@ -17,6 +17,7 @@ class MainNav {
                 this.hideDetails();
                 this.showBackNav()
                 this.showDetails(e.currentTarget.dataset.key);
+                this.turnOnLed(e.currentTarget.dataset.pin);
                 this.$globalContainer.classList.add('show-detail')
                 window.resetSwiper()
             });
@@ -26,6 +27,7 @@ class MainNav {
             window.resetSwiper()
             this.$globalContainer.classList.remove('show-detail')
             this.showHomepageNav()
+            this.demoMode()
 
             // add a bit of delay, waiting for transition
             setTimeout(() => {
@@ -51,6 +53,21 @@ class MainNav {
                 element.classList.remove('hidden')
             }
         });
+    }
+
+
+    turnOnLed(pin) {
+        // turn off all lights
+        for (let index = 2; index <= 13; index++) {
+            fetch(`/serial.php?pin=${index}&value=0`)    
+        }
+        
+        // turn on light
+        fetch(`/serial.php?pin=${pin}&value=255`)
+    }
+
+    demoMode() {
+        fetch(`/serial.php?pin=0&value=0`)
     }
 
 

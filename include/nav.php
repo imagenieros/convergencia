@@ -15,9 +15,10 @@ function buildNavGrid() {
                 $data = file_get_contents("./content/$folder/config.json");
                 $jsonData = json_decode($data, true);
                 $title = $jsonData['title'];
+                $pin = $jsonData['gpio_pin'];
 
                 echo('
-                    <div class="grid-item js-icon-action" data-key="folder-'. $folder .'">
+                    <div class="grid-item js-icon-action" data-key="folder-'. $folder .'" data-pin="'. $pin .'">
                         <div class="icon-container">
                             <img src="../content/'. $folder .'/icon.svg" />
                         </div>
