@@ -17,7 +17,7 @@ class MainNav {
                 this.hideDetails();
                 this.showBackNav()
                 this.showDetails(e.currentTarget.dataset.key);
-                this.turnOnLed(e.currentTarget.dataset.pin);
+                this.turnOnLed(e.currentTarget.dataset.pin, e.currentTarget.dataset.value);
                 this.$globalContainer.classList.add('show-detail')
                 window.resetSwiper()
             });
@@ -56,14 +56,9 @@ class MainNav {
     }
 
 
-    turnOnLed(pin) {
-        // turn off all lights
-        for (let index = 2; index <= 13; index++) {
-            fetch(`/serial.php?pin=${index}&value=0`)    
-        }
-        
+    turnOnLed(pin, value) {        
         // turn on light
-        fetch(`/serial.php?pin=${pin}&value=255`)
+        fetch(`/serial.php?pin=${pin}&value=${value}`)
     }
 
     demoMode() {

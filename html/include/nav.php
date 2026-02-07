@@ -16,9 +16,14 @@ function buildNavGrid() {
                 $jsonData = json_decode($data, true);
                 $title = $jsonData['title'];
                 $pin = $jsonData['gpio_pin'];
+                if (array_key_exists('value', $jsonData)) {
+                    $value = $jsonData['value'];
+                } else {
+                    $value = 255;
+                }
 
                 echo('
-                    <div class="grid-item js-icon-action" data-key="folder-'. $folder .'" data-pin="'. $pin .'">
+                    <div class="grid-item js-icon-action" data-key="folder-'. $folder .'" data-pin="'. $pin .'" data-value="'. $value .'">
                         <div class="icon-container">
                             <img src="../content/'. $folder .'/icon.svg" />
                         </div>
