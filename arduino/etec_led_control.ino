@@ -38,17 +38,31 @@ void setup()
   Serial.println("DEMO MODE");
 }
 
-void demo_loop()
+void demo_change_intensities()
 {
   for (int n = FIRST; n < LAST + 1; n++) {
     SoftPWMSet(n, random(32));
   }
+}
+
+void demo_loop()
+{
+  static unsigned long previousMillis = 0;
+  const long interval = 1000;
+
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    demo_change_intensities();
+    previousMillis = currentMillis; // update the previous timestamp
+  }
+
   if (Serial.available() > 0) {
     mode = OPERATION;
     all_to_zero();
     Serial.println("OPERATION MODE");
+    return;
   }
-  delay(1000);
+  delay(30);
 }
 
 void operation_loop()
