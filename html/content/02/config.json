@@ -1,4 +1,5 @@
 {
 	"title" : "Contactos",
-	"gpio_pin" : 2
+	"gpio_pin" : 2,
+	"gpio_value" : 254
 }
