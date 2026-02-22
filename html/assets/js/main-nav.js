@@ -58,11 +58,11 @@ class MainNav {
 
     turnOnLed(pin, value) {        
         // turn on light
-        fetch(`/serial.php?pin=${pin}&value=${value}`)
+        fetch(`http://localhost:8080?pin=${pin}&value=${value}`)
     }
 
     demoMode() {
-        fetch(`/serial.php?pin=0&value=0`)
+        fetch(`http://localhost:8080?pin=0&value=0`)
     }
 
 

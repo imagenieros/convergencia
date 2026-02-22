@@ -43,8 +43,8 @@ class RequestHandler(BaseHTTPRequestHandler):
 
         print(f"Received GET request with params: {params}")
 
-        turn_on_pin = int(params.get('led_number'))
-        turn_on_value = int(params.get('led_intensity'))
+        turn_on_pin = int(params.get('pin'))
+        turn_on_value = int(params.get('value'))
 
         cadena = build_serial_commands(turn_on_pin, turn_on_value)
         command_queue.put(cadena)
