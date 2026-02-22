@@ -1,5 +1,5 @@
 {
 	"title" : "Calculadora",
-	"gpio_pin" : 13,
-	"gpio_value" : 253
+	"gpio_pin" : 9,
+	"gpio_value" : 255
 }
