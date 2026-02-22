@@ -15,13 +15,16 @@ def serial_thread(port):
     try:
         with serial.Serial(port, 9600, timeout=1) as ser:
             while True:
-                command = command_queue.get()
-                if command is None:  # Exit signal
-                    break
-                logging.info(f'SERIAL> {command}')
-                ser.write(command.encode())
-                response = ser.readline().decode().strip()
-                logging.info(f'SERIAL< {response}')
+                # Check for available data to read
+                if ser.in_waiting > 0:
+                    response = ser.readline().decode().strip()
+                    logging.info(f'SERIAL< {response}')
+
+                # Check for queued commands
+                if not command_queue.empty():
+                    command = command_queue.get()
+                    logging.info(f'SERIAL> {command}')
+                    ser.write(command.encode())
     except Exception as e:
         logging.error(f'Error in serial thread: {e}')
 
@@ -37,6 +40,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         query = self.path.split('?')[1] if '?' in self.path else ''
         params = parse_qs(query)
         params = {k: v[0] for k, v in params.items()}  # Convert lists to single values
+
+        print(f"Received GET request with params: {params}")
 
         turn_on_pin = int(params.get('led_number'))
         turn_on_value = int(params.get('led_intensity'))
