@@ -38,8 +38,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         params = parse_qs(query)
         params = {k: v[0] for k, v in params.items()}  # Convert lists to single values
 
-        turn_on_pin = params.get('led_number')
-        turn_on_value = params.get('led_intensity')
+        turn_on_pin = int(params.get('led_number'))
+        turn_on_value = int(params.get('led_intensity'))
 
         cadena = build_serial_commands(turn_on_pin, turn_on_value)
         command_queue.put(cadena)
