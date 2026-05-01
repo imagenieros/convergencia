@@ -52,7 +52,7 @@
 <?php include("include/nav.php"); ?>
 <?php include("include/details.php"); ?>
 <body>
-   <!-- Full Screen Start button -->
+  <!-- Full Screen Start button -->
   <div id="start-button" class="centered-container">
     <div class="centered-content">Tap to start</div>
   </div>

@@ -32,7 +32,6 @@
   color: var(--main-text-color);
 }
 
-
 .bottom-bar-container .homepage-icon,.back-icon {
   display: none;
 }
@@ -45,7 +44,6 @@
   height: 8vh;
   margin-top: 1vh;
 }
-
 
 .bottom-bar-container .back-icon {
   text-align: center;
