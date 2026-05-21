@@ -1,17 +1,5 @@
 <?php 
 
-//Probaremos reescribir las rutas de los archivos de imagen con este añadido de funciones que me sugirio Copilot:
-function rewriteImagePaths($html, $folder) {
-    // Reescribe rutas relativas de imágenes
-    // Busca src="algo.ext" donde "algo" no tenga /
-    return preg_replace(
-        '/src="([^\/"]+\.(png|jpg|jpeg|gif|webp))"/i',
-        'src="content/' . $folder . '/$1"',
-        $html
-    );
-}
-//
-
 function buildDetails() {
     $allfiles = custom_scandir('content');
 
