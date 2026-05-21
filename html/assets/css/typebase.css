@@ -8,8 +8,8 @@ html {
 }
 /* Copy & Lists */
 p {
-  font-size: 3rem;
-  line-height: 1.5rem;
+  font-size: 2.5rem;
+  /* line-height: 1.5rem; */
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
@@ -45,22 +45,22 @@ h6 {
   font-family: ITC-Lubalin;
   margin-top: 1.5rem;
   margin-bottom: 0;
-  line-height: 1.5rem;
+  /* line-height: 1.5rem; */
 }
 h1 {
   font-size: 10rem;
   /* font-size: 4.242rem; */
-  line-height: 4.5rem;
+  /* line-height: 4.5rem; */
   margin-top: 3rem;
 }
 h2 {
-  font-size: 5rem;
+  font-size: 6rem;
   /* font-size: 2.828rem; */
-  line-height: 3rem;
+  /* line-height: 3rem; */
   margin-top: 3rem;
 }
 h3 {
-  font-size: 1.414rem;
+  font-size: 4rem;
 }
 h4 {
   font-size: 0.707rem;
