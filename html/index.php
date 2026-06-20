@@ -33,7 +33,7 @@
 <?php include("include/nav.php"); ?>
 <?php include("include/details.php"); ?>
 <body>
-  <div class="attract-mode-container js-attract-mode">
+  <div class="attract-mode-container js-attract-mode" hidden>
     <video
       class="js-attract-video"
       src="./assets/video/Video Attract Mode.mp4"

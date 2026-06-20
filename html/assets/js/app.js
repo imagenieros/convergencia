@@ -8,6 +8,7 @@ class App {
 
         this.buildComponents()
         this.initComponents()
+        this.hideAttractMode()
         this.bindEvents()
         this.resetInactivityTimer()
     }
@@ -60,6 +61,7 @@ class App {
 
     showAttractMode() {
         this.mainNav.goHome({ immediate: true });
+        this.$attractMode.hidden = false;
         this.$attractMode.classList.add('is-visible');
         this.$attractVideo.currentTime = 0;
         this.$attractVideo.play().catch(() => {});
@@ -69,6 +71,7 @@ class App {
         this.$attractMode.classList.remove('is-visible');
         this.$attractVideo.pause();
         this.$attractVideo.currentTime = 0;
+        this.$attractMode.hidden = true;
     }
 }
 
