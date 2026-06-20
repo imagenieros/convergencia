@@ -6,6 +6,7 @@ class MainNav {
         this.$contentElements = document.querySelectorAll('.js-content')
         this.$backButton = document.querySelector('.js-back')
         this.$bottomNavContainer = document.querySelector('.bottom-bar-container')
+        this.ledServerUrl = window.LED_SERVER_URL || 'http://localhost:8080';
 
         this.bindEvents()
     }
@@ -24,15 +25,7 @@ class MainNav {
         });
 
         this.$backButton.addEventListener('click', () => {
-            window.resetSwiper()
-            this.$globalContainer.classList.remove('show-detail')
-            this.showHomepageNav()
-            this.demoMode()
-
-            // add a bit of delay, waiting for transition
-            setTimeout(() => {
-                this.hideDetails()
-            }, 500)
+            this.goHome()
         })
     }
 
@@ -58,11 +51,27 @@ class MainNav {
 
     turnOnLed(pin, value) {        
         // turn on light
-        fetch(`http://localhost:8080?pin=${pin}&value=${value}`)
+        fetch(`${this.ledServerUrl}?pin=${pin}&value=${value}`).catch(() => {})
     }
 
     demoMode() {
-        fetch(`http://localhost:8080?pin=0&value=0`)
+        fetch(`${this.ledServerUrl}?pin=0&value=0`).catch(() => {})
+    }
+
+    goHome({ immediate = false } = {}) {
+        window.resetSwiper()
+        this.$globalContainer.classList.remove('show-detail')
+        this.showHomepageNav()
+        this.demoMode()
+
+        if (immediate) {
+            this.hideDetails()
+            return;
+        }
+
+        setTimeout(() => {
+            this.hideDetails()
+        }, 500)
     }
 
 

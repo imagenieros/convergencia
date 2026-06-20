@@ -6,10 +6,11 @@
     }
 
     function rewriteImagePaths($html, $folder) {
-        // Reescribe rutas relativas de imágenes
-        // Busca src="algo.ext" donde "algo" no tenga /
+        // Reescribe rutas relativas de imágenes del contenido para que apunten
+        // siempre a la carpeta del módulo actual, incluso cuando vienen desde
+        // subcarpetas como assets/.
         return preg_replace(
-            '/src="([^\/"]+\.(png|jpg|jpeg|gif|webp))"/i',
+            '/src="((?!\/|https?:\/\/|data:)[^"]+\.(png|jpg|jpeg|gif|webp|svg))"/i',
             'src="content/' . $folder . '/$1"',
             $html
         );

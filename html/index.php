@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="/assets/css/containers.css">
   <link rel="stylesheet" href="/assets/css/nav-grid.css">
   
-
   <style>
     img {
       max-width: 100%;
@@ -27,24 +26,6 @@
     .hidden {
       display: none;
     }
-
-    .centered-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      position: relative;
-      background: white;
-      z-index: 1000;
-    }
-
-    .centered-container .centered-content {
-      text-align: center;
-      font-size: 4rem;
-      font-family: Arial, sans-serif;
-      color: #333;
-    }    
   </style>
 </head>
 
@@ -52,9 +33,15 @@
 <?php include("include/nav.php"); ?>
 <?php include("include/details.php"); ?>
 <body>
-  <!-- Full Screen Start button -->
-  <div id="start-button" class="centered-container">
-    <div class="centered-content">Tap to start</div>
+  <div class="attract-mode-container js-attract-mode">
+    <video
+      class="js-attract-video"
+      src="./assets/video/Video Attract Mode.mp4"
+      muted
+      loop
+      playsinline
+      preload="auto"
+    ></video>
   </div>
 
   <!-- CONTENIDOS -->
@@ -92,16 +79,6 @@
 
   <!-- DEBUG -->
   <!-- <div class="debug-info-container js-debug"></div> -->
-
-  <script>
-    document.querySelector('#start-button').addEventListener('click', (e) => {
-      document.querySelector('body').requestFullscreen();
-      e.currentTarget.remove();
-      // aca mostrar todo
-    }, {once : true})
-
-    window.scrollTo(0,0)
-  </script>
 </body>
 
 <!-- Componentes JS -->
