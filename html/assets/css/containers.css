@@ -36,6 +36,23 @@
   z-index: 100;
 }
 
+.top-bar-timer {
+  position: absolute;
+  left: 1.8vh;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: Glacial-Indifference, sans-serif;
+  font-size: 2.5vh;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  background-color: var(--main-bg-top-nav-color);
+  padding: 0.45vh 0.8vh;
+  border-radius: 0.4vh;
+  z-index: 101;
+}
+
 .bottom-bar-container {
   position: absolute;
   width: 100%;

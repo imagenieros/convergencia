@@ -48,7 +48,7 @@
   <div class="global-container"><!-- add class 'show-detail' to show detail view -->
     <!-- TOP BAR -->
     <div class="top-bar-container">
-      <!-- <button class="js-back">Back</button> -->
+      <div class="top-bar-timer js-top-bar-timer">05:00</div>
     </div>
 
     <!-- MAIN NAV -->
